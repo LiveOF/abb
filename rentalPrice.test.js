@@ -61,6 +61,13 @@ describe('getSeason', () => {
   });
 });
 
+describe('price - car type validation', () => {
+  test('invalid car type returns error', () => {
+    expect(price('A', 'B', highPickup, highDropoff, 'Truck', 30, 3))
+      .toBe('Invalid car type - must be Compact, Electric, Cabrio, or Racer');
+  });
+});
+
 describe('price - age validation', () => {
   test('age < 18 returns ineligibility error', () => {
     expect(price('A', 'B', highPickup, highDropoff, 'Compact', 17, 3))
