@@ -30,6 +30,10 @@ function price(pickup, dropoff, pickupDate, dropoffDate, type, age, licenseYears
   const rentalDays = getDays(pickupDate, dropoffDate);
   const season = getSeason(pickupDate, dropoffDate);
 
+  if (carClass === "Unknown") {
+    return "Invalid car type - must be Compact, Electric, Cabrio, or Racer";
+  }
+
   if (age < MIN_RENTAL_AGE) {
     return "Driver too young - cannot quote the price";
   }
